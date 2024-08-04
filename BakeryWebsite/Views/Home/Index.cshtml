@@ -1,10 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
+<div class="Welcome">
     <h1 class="display-4">Welcome to Pasticceria Papa!</h1>
-    <p class="lead">Discover our exclusive range of products from Bakery items to Pastry.</p>
-    <a class="btn btn-primary" asp-action="Catalogue Page">Order Now</a>
+    <p class="lead">Discover our delicious bakery items.</p>
+    <a class="btn btn-primary btn-lg" href="@Url.Action("Index","Catalogue")" role="button">View Catalogue</a>
+</div>
 
+<div class="business-image">
+    <img src="/Images/PapaLogo.png" alt="Pasticceria Papa"/>
 </div>
