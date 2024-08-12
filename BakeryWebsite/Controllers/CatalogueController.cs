@@ -10,7 +10,7 @@ namespace BakeryWebsite.Controllers
         {
             var bakeryItems = new List<BakeryItem>
             {
-                new BakeryItem { Id = 1, Name = "Cheese Cake", Price = 5.99M, Description = "Delicious creamy cheesecake.", ImageUrl = "cheesecake.jpg" },
+                new BakeryItem { Id = 1, Name = "Strawberry Cheese Cake", Price = 5.99M, Description = "Delicious creamy cheesecake.", ImageUrl = "/Images/CheeseCakes.jpg" },
                 new BakeryItem { Id = 2, Name = "Croissant", Price = 2.99M, Description = "Flaky and buttery croissant.", ImageUrl = "croissant.jpg" },
                 new BakeryItem { Id = 3, Name = "Puff Pastry", Price = 3.50M, Description = "Light and crispy puff pastry.", ImageUrl = "puffpastry.jpg" },
                 new BakeryItem { Id = 4, Name = "Banana Bread", Price = 4.50M, Description = "Moist and sweet banana bread.", ImageUrl = "bananabread.jpg" },
