@@ -1,12 +1,10 @@
+using BakeryWebsite.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BakeryWebsite
 {
@@ -19,13 +17,22 @@ namespace BakeryWebsite
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Register DbContext
+            services.AddDbContext<StoreDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("StoreDbConnection")));
+
+            // Register Repository
+            services.AddScoped<IStoreRepository, EFStoreRepository>();
+
+            
             services.AddControllersWithViews();
+
+            services.AddAuthorization();
+
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -35,12 +42,15 @@ namespace BakeryWebsite
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
+
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthorization();   // Ensure this is after UseRouting and before UseEndpoints
 
             app.UseEndpoints(endpoints =>
             {
@@ -48,6 +58,9 @@ namespace BakeryWebsite
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            // Seed Data
+            SeedData.EnsurePopulated(app);
         }
     }
 }

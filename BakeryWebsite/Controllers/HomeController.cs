@@ -1,15 +1,15 @@
-﻿
+﻿using BakeryWebsite.Models;
 using Microsoft.AspNetCore.Mvc;
+
 namespace BakeryWebsite.Controllers
 {
     public class HomeController : Controller
     {
-
-
-        public IActionResult Index()
+        private IStoreRepository repository;
+        public HomeController(IStoreRepository repo)
         {
-            return View();
+            repository = repo;
         }
-
+        public IActionResult Index() => View(repository.Products);
     }
 }

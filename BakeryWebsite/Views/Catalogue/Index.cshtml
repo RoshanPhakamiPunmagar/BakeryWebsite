@@ -1,129 +1,16 @@
-﻿@model IEnumerable<BakeryItem>
-@{
-    ViewData["Title"] = "Catalogue";
-}
+﻿@model IQueryable<BakeryWebsite.Models.Product>
 
-<h1>Our Bakery Items</h1>
-<ol>
-    @foreach (var item in Model)
+<h2>Product Catalogue</h2>
+
+<div>
+    @foreach (var p in Model)
     {
-        <li>
-            <img src="@item.ImageUrl" alt="@item.Name" style="max-width: 300px; height: auto;" />
-            <h2>@item.Name</h2>
-            <p>@item.Price.ToString("C")</p>
-            <p>@item.Description</p>
-
-            @* Check if the item is a Strawberry Cheese Cake and add the reference *@
-            @if (item.Name == "Strawberry Cheese Cake")
-            {
-                <p>
-                    Unknown (n.d.) <i>Strawberry Cheese Cakes</i>. [Online]. Available at:
-                    <a href="https://cdn.shopify.com/s/files/1/1373/1921/products/Crosstown-Diner-Cheesecakes-18.jpg?v=1469716956" target="_blank">
-                        https://cdn.shopify.com/s/files/1/1373/1921/products/Crosstown-Diner-Cheesecakes-18.jpg?v=1469716956
-                    </a> (Accessed: 12 August 2024).
-                </p>
-            }
-
-            @* Check if the item is a Croissant and add the reference *@
-            @if (item.Name == "Croissant")
-            {
-                <p>
-                    Unknown (n.d.) <i>Plain Croissant</i>. [Online]. Available at:
-                    <a href="https://storetodoorau.com/cdn/shop/files/PasticceriaPapaPlainCroissant_1200x1200.jpg?v=1684278570" target="_blank">
-                        https://storetodoorau.com/cdn/shop/files/PasticceriaPapaPlainCroissant_1200x1200.jpg?v=1684278570
-                    </a> (Accessed: 12 August 2024).
-                </p>
-            }
-
-            @* Check if the item is Puff Pastry and add the reference *@
-            @if (item.Name == "Puff Pastry")
-            {
-                <p>
-                    Unknown (n.d.) <i>Puff Pastry</i>. [Online]. Available at:
-                    <a href="https://www.buonapappa.net/wp-content/uploads/2023/05/IMG_3205-2-1-500x500.jpg" target="_blank">
-                        https://www.buonapappa.net/wp-content/uploads/2023/05/IMG_3205-2-1-500x500.jpg
-                    </a> (Accessed: 12 August 2024).
-                </p>
-            }
-
-            @* Check if the item is Banana Bread and add the reference *@
-            @if (item.Name == "Banana Bread")
-            {
-                <p>
-                    Unknown (n.d.) <i>Banana Bread</i>. [Online]. Available at:
-                    <a href="https://www.bing.com/images/search?view=detailV2&ccid=o9HJm3nh&id=9780761AF65D134E7A9C4F5E814B45C02A83C0FB&thid=OIP.o9HJm3nhn-_aZERNZ01g0wHaHa&mediaurl=https%3A%2F%2Fppapa.com.au%2Fwp-content%2Fuploads%2F2018%2F04%2Fpasticceriapappa_product_webres_square_378.jpg&exph=1000&expw=1000&q=banana+bread+pasticceria+papa&simid=607997302123813333&FORM=IRPRST&ck=3EA5A8F980BCCE7F17BBBC319CC6ABE6&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0" target="_blank">
-                        https://www.bing.com/images/search?view=detailV2&ccid=o9HJm3nh&id=9780761AF65D134E7A9C4F5E814B45C02A83C0FB&thid=OIP.o9HJm3nhn-_aZERNZ01g0wHaHa&mediaurl=https%3A%2F%2Fppapa.com.au%2Fwp-content%2Fuploads%2F2018%2F04%2Fpasticceriapappa_product_webres_square_378.jpg&exph=1000&expw=1000&q=banana+bread+pasticceria+papa&simid=607997302123813333&FORM=IRPRST&ck=3EA5A8F980BCCE7F17BBBC319CC6ABE6&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0
-                    </a> (Accessed: 12 August 2024).
-                </p>
-            }
-
-            @* Check if the item is Almond Biscuits and add the reference *@
-            @if (item.Name == "Donuts")
-            {
-                <p>
-                    Unknown (n.d.) <i>Nutella Bombe Donut</i>. [Online]. Available at:
-                    <a href="https://www.bing.com/images/search?view=detailV2&ccid=DA6cIcW2&id=2F9AA8A662BD73A98D4B73E518476AFB60B14DDF&thid=OIP.DA6cIcW2ArkuziLlpSDEnwHaHa&mediaurl=https%3A%2F%2Fppapa.au%2Fcdn%2Fshop%2Ffiles%2Fpasticceriapappa_product_webres_square_222.jpg%3Fv%3D1709012786%26width%3D1445&exph=1000&expw=1000&q=donuts+of+pasticceria+papa&simid=607988381480009084&FORM=IRPRST&ck=6A230C76DA930C215366F44E02F743B3&selectedIndex=6&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0" target="_blank">
-                        https://www.bing.com/images/search?view=detailV2&ccid=DA6cIcW2&id=2F9AA8A662BD73A98D4B73E518476AFB60B14DDF&thid=OIP.DA6cIcW2ArkuziLlpSDEnwHaHa&mediaurl=https%3A%2F%2Fppapa.au%2Fcdn%2Fshop%2Ffiles%2Fpasticceriapappa_product_webres_square_222.jpg%3Fv%3D1709012786%26width%3D1445&exph=1000&expw=1000&q=donuts+of+pasticceria+papa&simid=607988381480009084&FORM=IRPRST&ck=6A230C76DA930C215366F44E02F743B3&selectedIndex=6&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0
-                    </a> (Accessed: 12 August 2024).
-                </p>
-            }
-
-            @if (item.Name == "Almonds Biscuits")
-            {
-                <p>
-                    Unknown (n.d.) <i>Almond Biscuits</i>. [Online]. Available at:
-                <a href="https://www.bing.com/images/search?view=detailV2&ccid=D%2BNLQjNT&id=70A90FEBA79BFFC9768D64079A6C33269C0DB8C4&thid=OIP.D-NLQjNTOuDdxRhdO7IesgHaHa&mediaurl=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0449%2F4209%2F8582%2Fproducts%2FPasticceriaPapaAlmondHorseshoeBiscuitsArial_1024x1024.jpg%3Fv%3D1623055701&exph=1000&expw=1000&q=pasticceria+papa+almondsbiscuits.jpg&simid=608022281644243481&FORM=IRPRST&ck=B21012D7A2B6BF8121BCAC6B07D0FB25&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0" target="_blank">
-                        https://www.bing.com/images/search?view=detailV2&ccid=D%2BNLQjNT&id=70A90FEBA79BFFC9768D64079A6C33269C0DB8C4&thid=OIP.D-NLQjNTOuDdxRhdO7IesgHaHa&mediaurl=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0449%2F4209%2F8582%2Fproducts%2FPasticceriaPapaAlmondHorseshoeBiscuitsArial_1024x1024.jpg%3Fv%3D1623055701&exph=1000&expw=1000&q=pasticceria+papa+almondsbiscuits.jpg&simid=608022281644243481&FORM=IRPRST&ck=B21012D7A2B6BF8121BCAC6B07D0FB25&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0
-                </a> (Accessed: 12 August 2024).
-            </p>
-            }
-
-
-            @* Check if the item is Heart Biscuits and add the reference *@
-            @if (item.Name == "Heart Biscuits")
-            {
-                <p>
-                    Unknown (n.d.) <i>Heart Biscuits</i>. [Online]. Available at:
-                    <a href="https://www.bing.com/images/search?view=detailV2&ccid=SRdUbJ6f&id=E228EF116F50227137013C5AA7E2C1A72EAA6FD1&thid=OIP.SRdUbJ6fQhJQPb18pDei5wHaHa&mediaurl=https%3A%2F%2Fppapa.au%2Fcdn%2Fshop%2Ffiles%2Fpasticceriapappa_product_webres_square_149.jpg%3Fv%3D1709013533%26width%3D1946&exph=1000&expw=1000&q=heartbiscuits.jpg+of+pasticceria+papa&simid=608016977367272822&FORM=IRPRST&ck=8AC3A193C642AE692BE65FA24A9414BF&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0" target="_blank">
-                        https://www.bing.com/images/search?view=detailV2&ccid=SRdUbJ6f&id=E228EF116F50227137013C5AA7E2C1A72EAA6FD1&thid=OIP.SRdUbJ6fQhJQPb18pDei5wHaHa&mediaurl=https%3A%2F%2Fppapa.au%2Fcdn%2Fshop%2Ffiles%2Fpasticceriapappa_product_webres_square_149.jpg%3Fv%3D1709013533%26width%3D1946&exph=1000&expw=1000&q=heartbiscuits.jpg+of+pasticceria+papa&simid=608016977367272822&FORM=IRPRST&ck=8AC3A193C642AE692BE65FA24A9414BF&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0
-                    </a> (Accessed: 12 August 2024).
-                </p>
-            }
-
-            @* Check if the item is Cannoli Cakes and add the reference *@
-            @if (item.Name == "Cannoli Cakes")
-            {
-                <p>
-                    Unknown (n.d.) <i>Cannoli Cakes</i>. [Online]. Available at:
-                    <a href="https://www.bing.com/images/search?view=detailV2&ccid=T01rL8iz&id=13EBDD17EBCAFB7A1D6DE21DD8A7C5B2F2FF0031&thid=OIP.T01rL8iz2aZgvwZK3H8FWgHaFK&mediaurl=https%3A%2F%2Fcdn.broadsheet.com.au%2Fcache%2F84%2Fa1%2F84a15989d86f0b8821465047459c090b.jpg&exph=600&expw=860&q=cannolicakes.jpg+of+pasticceria+papa&simid=608010474830447337&FORM=IRPRST&ck=E0648D78A267B8CA0DF3B02BD5145061&selectedIndex=1&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0" target="_blank">
-                        https://www.bing.com/images/search?view=detailV2&ccid=T01rL8iz&id=13EBDD17EBCAFB7A1D6DE21DD8A7C5B2F2FF0031&thid=OIP.T01rL8iz2aZgvwZK3H8FWgHaFK&mediaurl=https%3A%2F%2Fcdn.broadsheet.com.au%2Fcache%2F84%2Fa1%2F84a15989d86f0b8821465047459c090b.jpg&exph=600&expw=860&q=cannolicakes.jpg+of+pasticceria+papa&simid=608010474830447337&FORM=IRPRST&ck=E0648D78A267B8CA0DF3B02BD5145061&selectedIndex=1&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0
-                    </a> (Accessed: 12 August 2024).
-                </p>
-            }
-
-            @if (item.Name == "Muffin")
-            {
-                <p>
-                    Unknown (n.d.) <i>Muffin</i>. [Online]. Available at:
-                    <a href="https://www.bing.com/images/search?view=detailV2&ccid=IJIZBwVW&id=6AED5F18E0C897A527F3DB147BABBE13765D8E21&thid=OIP.IJIZBwVW3h2I2jVvzQ_S2gHaHa&mediaurl=https%3A%2F%2Fppapa.au%2Fcdn%2Fshop%2Ffiles%2Fpasticceriapappa_product_webres_square_184.jpg%3Fv%3D1709013115%26width%3D1445&exph=1000&expw=1000&q=pasticceria+papa+muffin&simid=608006781108366589&FORM=IRPRST&ck=222F798F79113AE9314C9B04CB513239&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0" target="_blank">
-                        https://www.bing.com/images/search?view=detailV2&ccid=IJIZBwVW&id=6AED5F18E0C897A527F3DB147BABBE13765D8E21&thid=OIP.IJIZBwVW3h2I2jVvzQ_S2gHaHa&mediaurl=https%3A%2F%2Fppapa.au%2Fcdn%2Fshop%2Ffiles%2Fpasticceriapappa_product_webres_square_184.jpg%3Fv%3D1709013115%26width%3D1445&exph=1000&expw=1000&q=pasticceria+papa+muffin&simid=608006781108366589&FORM=IRPRST&ck=222F798F79113AE9314C9B04CB513239&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0
-                    </a> (Accessed: 12 August 2024).
-                </p>
-            }
-
-         
-
-
-            @* Check if the item is Ricotta Cake and add the reference *@
-            @if (item.Name == "Baked Ricotta Cakes")
-            { 
-                <p>
-                    Unknown (n.d.) <i>Ricotta Cake</i>. [Online]. Available at:
-                    <a href="https://www.bing.com/images/search?view=detailV2&ccid=7MvLCBGX&id=275A668FAE801EF0E9155532D17326CF9553BC31&thid=OIP.7MvLCBGXqciEhQO0bhKhWwHaHa&mediaurl=https%3A%2F%2Fppapa.au%2Fcdn%2Fshop%2Ffiles%2Fpasticceriapappa_cakes_webres_square_138.jpg%3Fv%3D1706407387%26width%3D1445&exph=1000&expw=1000&q=bakedricottacakes.jpg+of+pasticceria+papa&simid=607997602761897101&FORM=IRPRST&ck=9CA9E8FAFECD37CAE89BF27649D71095&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0" target="_blank">
-                        https://www.bing.com/images/search?view=detailV2&ccid=7MvLCBGX&id=275A668FAE801EF0E9155532D17326CF9553BC31&thid=OIP.7MvLCBGXqciEhQO0bhKhWwHaHa&mediaurl=https%3A%2F%2Fppapa.au%2Fcdn%2Fshop%2Ffiles%2Fpasticceriapappa_cakes_webres_square_138.jpg%3Fv%3D1706407387%26width%3D1445&exph=1000&expw=1000&q=bakedricottacakes.jpg+of+pasticceria+papa&simid=607997602761897101&FORM=IRPRST&ck=9CA9E8FAFECD37CAE89BF27649D71095&selectedIndex=0&itb=0&cw=1382&ch=626&ajaxhist=0&ajaxserp=0
-                    </a> (Accessed: 12 August 2024).
-                </p>
-            }
-        </li>
+        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+            <h3>@p.Name</h3>
+            <img src="@p.ImageUrl" alt="@p.Name" style="width: 200px; height: auto;" />
+            <p>@p.Description</p>
+            <h4>@p.Price.ToString("c")</h4>
+            <p><strong>Category:</strong> @p.Category</p>
+        </div>
     }
-</ol>
+</div>
