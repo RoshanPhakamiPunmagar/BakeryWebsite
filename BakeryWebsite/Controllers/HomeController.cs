@@ -1,15 +1,21 @@
-﻿using BakeryWebsite.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace BakeryWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private IStoreRepository repository;
-        public HomeController(IStoreRepository repo)
+        private readonly IConfiguration _configuration;
+
+        public HomeController(IConfiguration configuration)
         {
-            repository = repo;
+            _configuration = configuration;
         }
-        public IActionResult Index() => View(repository.Products);
+
+        public IActionResult Index()
+        {
+            ViewData["LogoUrl"] = _configuration["LogoUrl"];
+            return View();
+        }
     }
 }

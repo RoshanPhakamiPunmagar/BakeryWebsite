@@ -5,17 +5,9 @@
 <div class="Welcome">
     <h1 class="display-4">Welcome to Pasticceria Papa!</h1>
     <p class="lead">Discover our delicious bakery items.</p>
-    <a class="btn btn-primary btn-lg" href="@Url.Action("Index","Catalogue")" role="button">View Catalogue</a>
+    <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Catalogue")" role="button">View Catalogue</a>
 </div>
 
 <div class="business-image">
-    <img src="/Images/PapaLogo.png" alt="Pasticceria Papa" style="max-width:2000px; height:475px;" />
-    <p>
-        Unknown (n.d.) Pasticceria Papa logo. [Online]. Available at:
-        <a href="https://squeezecreative.com.au/wp-content/uploads/2010/12/Squeeze-Creative-Logos-Pasticceria-Papa.png">
-            https://squeezecreative.com.au/wp-content/uploads/2010/12/Squeeze-Creative-Logos-Pasticceria-Papa.png
-        </a> (Accessed: 12 August 2024).
-    </p>
+    <img src="@ViewData["LogoUrl"]" alt="Pasticceria Papa" style="max-width:3000px; height:475px;" />
 </div>
-
-

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BakeryWebsite.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20240818073209_Initial")]
-    partial class Initial
+    [Migration("20240819024213_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

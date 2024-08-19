@@ -3,14 +3,26 @@
 <h2>Product Catalogue</h2>
 
 <div>
+    <h3>Categories</h3>
+    <ul>
+        <li><a href="@Url.Action("Index", "Catalogue", new { category = (string)null })">All</a></li>
+        <li><a href="@Url.Action("Index", "Catalogue", new { category = "Cake" })">Cake</a></li>
+        <li><a href="@Url.Action("Index", "Catalogue", new { category = "Pastry" })">Pastry</a></li>
+        <li><a href="@Url.Action("Index", "Catalogue", new { category = "Bread" })">Bread</a></li>
+        <li><a href="@Url.Action("Index", "Catalogue", new { category = "Biscuit" })">Biscuit</a></li>
+    </ul>
+</div>
+
+<div>
     @foreach (var p in Model)
     {
         <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
             <h3>@p.Name</h3>
-            <img src="@p.ImageUrl" alt="@p.Name" style="width: 200px; height: auto;" />
+            <img src="@Url.Content(p.ImageUrl)" alt="@p.Name" style="width: 170px; height: auto;" />
             <p>@p.Description</p>
             <h4>@p.Price.ToString("c")</h4>
             <p><strong>Category:</strong> @p.Category</p>
+            <a href="@Url.Action("Details", "Catalogue", new { id = p.Id })">View Details</a>
         </div>
     }
 </div>

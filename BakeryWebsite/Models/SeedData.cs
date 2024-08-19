@@ -23,7 +23,8 @@ namespace BakeryWebsite
                         Description = "Delicious creamy cheesecake with strawberry topping.",
                         Category = "Cake",
                         Price = 6.99M,
-                        ImageUrl = "/Images/CheeseCakes.jpg"
+                        ImageUrl = "/Images/cheesecake.jpg"
+
                     },
                     new Product
                     {
@@ -39,7 +40,7 @@ namespace BakeryWebsite
                         Description = "Light and crispy puff pastry filled with custard.",
                         Category = "Pastry",
                         Price = 3.50M,
-                        ImageUrl = "/Images/PuffPastry.jpg"
+                        ImageUrl = "/Images/puff2.jpg"
                     },
                     new Product
                     {
@@ -55,7 +56,7 @@ namespace BakeryWebsite
                         Description = "Soft and sweet donuts with chocolate and sprinkles.",
                         Category = "Pastry",
                         Price = 1.99M,
-                        ImageUrl = "/Images/Donuts.jpg"
+                        ImageUrl = "/Images/Donut.jpg"
                     },
                     new Product
                     {
@@ -63,7 +64,7 @@ namespace BakeryWebsite
                         Description = "Crunchy almond biscuits with a hint of vanilla.",
                         Category = "Biscuit",
                         Price = 5.99M,
-                        ImageUrl = "/Images/AlmondBiscuits.jpg"
+                        ImageUrl = "/Images/almond.jpg"
                     },
                     new Product
                     {
@@ -71,7 +72,7 @@ namespace BakeryWebsite
                         Description = "Heart-shaped biscuits, perfect for Valentine's Day.",
                         Category = "Biscuit",
                         Price = 4.99M,
-                        ImageUrl = "/Images/HeartBiscuits.jpg"
+                        ImageUrl = "/Images/heartbiscuits.jpg"
                     },
                     new Product
                     {
@@ -79,7 +80,7 @@ namespace BakeryWebsite
                         Description = "Traditional Italian cannoli cake filled with ricotta cream.",
                         Category = "Cake",
                         Price = 8.50M,
-                        ImageUrl = "/Images/CannoliCake.jpg"
+                        ImageUrl = "/Images/cannolicakes.jpg"
                     },
                     new Product
                     {
@@ -87,7 +88,7 @@ namespace BakeryWebsite
                         Description = "Soft muffins with blueberry and chocolate chips.",
                         Category = "Pastry",
                         Price = 3.00M,
-                        ImageUrl = "/Images/Muffin.jpg"
+                        ImageUrl = "/Images/muffin.jpg"
                     },
                     new Product
                     {
@@ -95,7 +96,7 @@ namespace BakeryWebsite
                         Description = "Traditional baked ricotta cake, perfect for any occasion.",
                         Category = "Cake",
                         Price = 7.99M,
-                        ImageUrl = "/Images/BakedRicottaCake.jpg"
+                        ImageUrl = "/Images/ricotta.jpg"
                     }
                 );
                 context.SaveChanges();
