@@ -6,6 +6,7 @@ namespace BakeryWebsite.Controllers
     public class HomeController : Controller
     {
         private readonly IConfiguration _configuration;
+       
 
         public HomeController(IConfiguration configuration)
         {

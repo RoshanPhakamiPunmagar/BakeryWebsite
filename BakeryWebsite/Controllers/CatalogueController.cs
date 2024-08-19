@@ -32,7 +32,7 @@ namespace BakeryWebsite.Controllers
             {
                 return NotFound();
             }
-
+             
             return View(product);
         }
         [HttpPost]
