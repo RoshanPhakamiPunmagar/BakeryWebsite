@@ -33,6 +33,8 @@ namespace BakeryWebsite
 
         }
 
+
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -58,6 +60,8 @@ namespace BakeryWebsite
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
 
             // Seed Data
             SeedData.EnsurePopulated(app);

@@ -13,4 +13,20 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Watch Remove="Views\Home\AboutUs.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\AboutUs.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\AboutUs.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\About\AboutUs.cshtml" />
+  </ItemGroup>
+
 </Project>

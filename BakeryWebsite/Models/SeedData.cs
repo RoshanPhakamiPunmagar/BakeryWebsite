@@ -26,6 +26,36 @@ namespace BakeryWebsite
                         ImageUrl = "/Images/cheesecake.jpg"
 
                     },
+
+                    new Product
+                    {
+                        Name = "Brioche",
+                        Description = "Traditional Italian sweet brioche - the perfect accompaniment to your morning coffee or served with gelato.",
+                        Category = "Cake",
+                        Price = 6.99M,
+                        ImageUrl = "/Images/brioche.jpg"
+
+                    },
+
+                    new Product
+                    {
+                        Name = "Danish",
+                        Description = "Danish pastries with assorted fruit toppings.",
+                        Category = "Cake",
+                        Price = 6.99M,
+                        ImageUrl = "/Images/danish.jpg"
+
+                    },
+
+                    new Product
+                    {
+                        Name = "Croissant Scrolls",
+                        Description = "Buttery. Flakey. Delicious. Our new Croissant Scrolls are available as Nutella and Pistachio flavour.",
+                        Category = "Cake",
+                        Price = 6.99M,
+                        ImageUrl = "/Images/croissantscrolls.jpg"
+
+                    },
                     new Product
                     {
                         Name = "Croissant",
@@ -34,13 +64,13 @@ namespace BakeryWebsite
                         Price = 2.99M,
                         ImageUrl = "/Images/Croissant.jpg"
                     },
-                    new Product
+                    new Product 
                     {
                         Name = "Puff Pastry",
                         Description = "Light and crispy puff pastry filled with custard.",
                         Category = "Pastry",
                         Price = 3.50M,
-                        ImageUrl = "/Images/puff2 .jpg"
+                        ImageUrl = "/Images/puff2.jpg"
                     },
                     new Product
                     {

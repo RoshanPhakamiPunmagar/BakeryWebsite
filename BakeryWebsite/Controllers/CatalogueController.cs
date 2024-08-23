@@ -22,7 +22,7 @@ namespace BakeryWebsite.Controllers
                 products = products.Where(p => p.Category == category);
             }
 
-            return View(products);
+            return View("Catalogue",products);
         }
 
         public IActionResult Details(int id)
@@ -37,14 +37,14 @@ namespace BakeryWebsite.Controllers
         }
         [HttpPost]
         public IActionResult AddToCart(int productId, int quantity)
-        {
-            // Assuming you have a cart service to handle cart operations
+        {          
             var product = _repository.Products.FirstOrDefault(p => p.Id == productId);
             if (product != null)
             {
-                // Add to cart logic here
-                // e.g., _cartService.AddToCart(product, quantity);
+          // Have to add some idea about what to do after this button is clicked
+
             }
+           
 
             return RedirectToAction("Index", "Catalogue");
         }

@@ -1,0 +1,87 @@
+﻿@model IQueryable<BakeryWebsite.Models.Product>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pastery Items</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Pasticceria Papa</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">Home Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("AboutUs", "About")">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Contact", "Home")">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("References", "Home")">References</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="@Url.Action("Index", "Catalogue")">View Catalogue</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="categoryNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Catalogue", new { category = (string)null })">All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Catalogue", new { category = "Cake" })">Cake</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Catalogue", new { category = "Pastry" })">Pastry</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Catalogue", new { category = "Bread" })">Bread</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Catalogue", new { category = "Biscuit" })">Biscuit</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2>Pastry Items</h2>
+
+        <div class="row">
+            @foreach (var p in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="@Url.Content(p.ImageUrl)" class="card-img-top img-thumbnail" style="width: 100%; height: 200px; object-fit: cover;" alt="@p.Name" />
+                        <div class="card-body">
+                            <h5 class="card-title">@p.Name</h5>
+                            <p class="card-text">@p.Description</p>
+                            <h4 class="card-text text-primary">@p.Price.ToString("c")</h4>
+                            <p>Category: @p.Category</p>
+                            <a href="@Url.Action("Details", "Catalogue", new { id = p.Id })" class="btn btn-outline-primary">See Price</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
