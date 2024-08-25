@@ -70,7 +70,7 @@ namespace BakeryWebsite
                         Description = "Light and crispy puff pastry filled with custard.",
                         Category = "Pastry",
                         Price = 3.50M,
-                        ImageUrl = "/Images/puff2.jpg"
+                        ImageUrl = "/Images/puff.jpg"
                     },
                     new Product
                     {
