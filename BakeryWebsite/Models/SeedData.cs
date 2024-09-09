@@ -27,6 +27,16 @@ namespace BakeryWebsite
 
                     },
 
+                     new Product
+                     {
+                         Name = "Puff Pastry",
+                         Description = "Delicious creamy cheesecake with strawberry topping.",
+                         Category = "Cake",
+                         Price = 6.99M,
+                         ImageUrl = "/Images/puff2.jpg"
+
+                     },
+
                     new Product
                     {
                         Name = "Brioche",
@@ -64,14 +74,7 @@ namespace BakeryWebsite
                         Price = 2.99M,
                         ImageUrl = "/Images/Croissant.jpg"
                     },
-                    new Product 
-                    {
-                        Name = "Puff Pastry",
-                        Description = "Light and crispy puff pastry filled with custard.",
-                        Category = "Pastry",
-                        Price = 3.50M,
-                        ImageUrl = "/Images/puff.jpg"
-                    },
+                  
                     new Product
                     {
                         Name = "Banana Bread",
