@@ -3,48 +3,71 @@ using BakeryWebsite.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BakeryWebsite.Migrations
 {
-    [DbContext(typeof(StoreDbContext))]
+    /**
+     *
+     * @author Roshan Phakami PunMagar
+     * 
+     * File Name: StoreDbContextModelSnapshot.cs
+     * Date: 27/09/2024
+     * Purpose: Represents a snapshot of the current state of the model in the database.
+     *          This snapshot is used by Entity Framework to keep track of model changes
+     *          and to perform migrations accordingly.
+     *
+     * ******************************************************
+     */
+    [DbContext(typeof(StoreDbContext))]  // Specifies the DbContext type for this snapshot
     partial class StoreDbContextModelSnapshot : ModelSnapshot
     {
+        // Method to build the model for the database
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
+#pragma warning disable 612, 618  // Disable warnings for obsolete code
+
+            // Configuring model annotations
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.30")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "3.1.30")  // Specifies the version of the product
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)  // Sets the maximum identifier length
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn); // Sets identity column strategy for SQL Server
 
+            // Defining the 'Product' entity
             modelBuilder.Entity("BakeryWebsite.Models.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+            {
+                // Configuring the 'Id' property as the primary key with identity generation
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()  // Automatically generate value when a new record is added
+                    .HasColumnType("int")  // Specifies the data type in the database
+                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);  // Set identity column strategy
 
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
+                // Configuring the 'Category' property
+                b.Property<string>("Category")
+                    .HasColumnType("nvarchar(max)"); // Specifies the data type in the database
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                // Configuring the 'Description' property
+                b.Property<string>("Description")
+                    .HasColumnType("nvarchar(max)"); // Specifies the data type in the database
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                // Configuring the 'ImageUrl' property
+                b.Property<string>("ImageUrl")
+                    .HasColumnType("nvarchar(max)"); // Specifies the data type in the database
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                // Configuring the 'Name' property
+                b.Property<string>("Name")
+                    .HasColumnType("nvarchar(max)"); // Specifies the data type in the database
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(7, 2)");
+                // Configuring the 'Price' property with decimal precision
+                b.Property<decimal>("Price")
+                    .HasColumnType("decimal(7, 2)"); // Specifies the data type in the database
 
-                    b.HasKey("Id");
+                // Setting the primary key for the entity
+                b.HasKey("Id");
 
-                    b.ToTable("Products");
-                });
-#pragma warning restore 612, 618
+                // Specifies the table name in the database
+                b.ToTable("Products");
+            });
+#pragma warning restore 612, 618  // Re-enable warnings
         }
     }
 }
