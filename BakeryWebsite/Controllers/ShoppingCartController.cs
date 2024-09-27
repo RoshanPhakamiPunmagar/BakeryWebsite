@@ -22,7 +22,9 @@ public class ShoppingCartController : Controller
     // Constructor that injects the IShoppingCartService
     public ShoppingCartController(IShoppingCartService shoppingCartService)
     {
-        _shoppingCartService = shoppingCartService;  // Assign the injected service to the field
+        _shoppingCartService = shoppingCartService;
+        var cartItems = _shoppingCartService.GetCartItems();
+        ViewBag.CartItemCount = cartItems.Count; // Set cart item count for the view
     }
 
     // Action to display the shopping cart
