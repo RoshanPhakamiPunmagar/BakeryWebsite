@@ -1,6 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index", "Cart")">Cart</a>
+    </li>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]  Pasticceria Papa</title>
@@ -10,6 +14,7 @@
 
     <link rel="stylesheet" href="~/css/COIT12204FooterStyleSheet.css" />
 </head>
+
 <body>
     <main role="main">
         @RenderBody()
