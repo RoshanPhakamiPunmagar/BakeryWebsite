@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Shared\FooterLayout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.30" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.30" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.30">
@@ -23,10 +27,20 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Home\AboutUs.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\FooterLayout.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Views\About\AboutUs.cshtml" />
+    <None Include="Views\Shared\FooterLayout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Watch Remove="Views\Shared\FooterLayout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\FooterLayout.cshtml" />
   </ItemGroup>
 
 </Project>

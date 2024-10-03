@@ -54,17 +54,20 @@ namespace BakeryWebsite.Controllers
             return View(product);  // Return the product details view
         }
 
-        // Action to add a product to the shopping cart
         [HttpPost]
         public IActionResult AddToCart(int productId, int quantity)
         {
-            var product = _repository.Products.FirstOrDefault(p => p.Id == productId);  // Retrieve product by ID
+            var product = _repository.Products.FirstOrDefault(p => p.Id == productId);
             if (product != null)
             {
-                _shoppingCartService.AddToCart(product, quantity);  // Call the shopping cart service to add the product
+                // Add item to cart service
+                _shoppingCartService.AddToCart(product, quantity);
+                TempData["Message"] = $"{quantity} {product.Name}(s) added to the cart.";
+                return RedirectToAction("Cart", "ShoppingCart"); // Redirect to the Cart page
             }
 
-            return RedirectToAction("Index", "Catalogue");  // Redirect to the Catalogue page after adding to cart
+            return RedirectToAction("Index", "Catalogue"); // Redirect back to catalogue if product is not found
         }
+
     }
 }

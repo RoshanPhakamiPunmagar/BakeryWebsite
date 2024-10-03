@@ -37,14 +37,17 @@
                 <tr>
                     <td>@item.Product.Name</td>
                     <td>@item.Quantity</td>
-                    <td>@String.Format("{0:C}", item.Product.Price)</td>
-                    <td>@String.Format("{0:C}", item.Product.Price * item.Quantity)</td>
+                    <td>@item.Product.Price.ToString("C")</td>
+                    <td>@((item.Product.Price * item.Quantity).ToString("C"))</td>
+
+
                 </tr>
             }
         </tbody>
     </table>
 
-    <p><strong>Total: @String.Format("{0:C}", Model.TotalPrice)</strong></p>
+    <p><strong>Total: @Model.TotalPrice.ToString("C")</strong></p>
+
 
     <button type="submit">Place Order</button>
 </form>

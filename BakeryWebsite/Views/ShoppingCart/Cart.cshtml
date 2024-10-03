@@ -25,12 +25,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Index", "Catalogue")">View Catalogue</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Cart", "ShoppingCart")">
-                        Cart
-                        <span class="badge bg-secondary">@ViewBag.CartItemCount</span> <!-- Show number of items in the cart -->
-                    </a>
-                </li>
+                
             </ul>
         </div>
     </nav>
@@ -65,10 +60,13 @@ else
                         <img src="@item.Product.ImageUrl" alt="@item.Product.Name" style="width: 50px;" />
                         @item.Product.Name
                     </td>
-                    <td>@String.Format("{0:C}", item.Product.Price)</td>
-                    <td>@item.Quantity</td>
-                    <td>@String.Format("{0:C}", item.Product.Price * item.Quantity)</td>
                     <td>
+                        @item.Product.Price.ToString("C")
+                    </td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Product.Price * item.Quantity).ToString("C")</td>
+
+                    <td>s
                         <form asp-action="RemoveFromCart" asp-route-productId="@item.Product.Id" method="post">
                             <button type="submit" class="btn btn-danger">Remove</button>
                         </form>
@@ -78,7 +76,8 @@ else
         </tbody>
     </table>
 
-    <p><strong>Total: @String.Format("{0:C}", ViewBag.TotalPrice)</strong></p>
+    <p><strong>Total: @(ViewBag.TotalPrice.ToString("C"))</strong></p>
+
 
     <div>
         <a asp-controller="Catalogue" asp-action="Index" class="btn btn-primary">Continue Shopping</a>
