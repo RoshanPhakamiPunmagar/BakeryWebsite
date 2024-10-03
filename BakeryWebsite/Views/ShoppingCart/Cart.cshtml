@@ -1,9 +1,57 @@
 ﻿@model List<BakeryWebsite.Models.CartItem>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart | Pasticceria Papa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: mediumvioletred; 
+        }
+        .navbar {
+            background-color: #007bff; 
+        }
+        .navbar-brand, .nav-link {
+            color: white !important; 
+        }
+        h3 {
+            color: #343a40; 
+            margin-top: 20px; 
+        }
+        table {
+            background-color: white; 
+        }
+        th {
+            background-color: #007bff; 
+            color: white; 
+        }
+        .btn-danger {
+            margin-top: 5px; 
+        }
+        .total-price {
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            margin-top: 20px; 
+        }
+        .action-buttons {
+            margin-top: 20px; 
+        }
+        .footer {
+            margin-top: 50px; 
+            background-color: #007bff; 
+            color: white; 
+            padding: 20px; 
+            text-align: center; 
+        }
+    </style>
+</head>
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">Pasticceria Papa</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,10 +59,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Index", "Home")">Home Page</a>
                 </li>
-                <a class="nav-link" href="@Url.Action("AboutUs", "About")">About Us</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("AboutUs", "About")">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Contact", "Home")">Contact</a>
@@ -25,64 +73,66 @@
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Index", "Catalogue")">View Catalogue</a>
                 </li>
-                
             </ul>
         </div>
     </nav>
 
-</body>
+    <div class="container mt-4">
+        <h3 class="text-center">Shopping Cart</h3>
 
-<h3>Shopping Cart</h3>
+        @if (Model == null || Model.Count == 0)
+        {
+            <p class="text-center">Your cart is empty.</p>
+        }
+        else
+        {
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@item.Product.ImageUrl" alt="@item.Product.Name" style="width: 50px; height: auto;" />
+                                @item.Product.Name
+                            </td>
+                            <td>
+                                @item.Product.Price.ToString("C")
+                            </td>
+                            <td>@item.Quantity</td>
+                            <td>@String.Format("{0:C}", item.Product.Price * item.Quantity)</td>
+                            <td>
+                                <form asp-action="RemoveFromCart" asp-route-productId="@item.Product.Id" method="post">
+                                    <button type="submit" class="btn btn-danger">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 
+            <p class="total-price text-center">Total: @(ViewBag.TotalPrice.ToString("C"))</p>
 
-
-@if (Model == null || Model.Count == 0)
-{
-    <p>Your cart is empty.</p>
-}
-else
-{
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        <img src="@item.Product.ImageUrl" alt="@item.Product.Name" style="width: 50px;" />
-                        @item.Product.Name
-                    </td>
-                    <td>
-                        @item.Product.Price.ToString("C")
-                    </td>
-                    <td>@item.Quantity</td>
-                    <td>@(item.Product.Price * item.Quantity).ToString("C")</td>
-
-                    <td>s
-                        <form asp-action="RemoveFromCart" asp-route-productId="@item.Product.Id" method="post">
-                            <button type="submit" class="btn btn-danger">Remove</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-    <p><strong>Total: @(ViewBag.TotalPrice.ToString("C"))</strong></p>
-
-
-    <div>
-        <a asp-controller="Catalogue" asp-action="Index" class="btn btn-primary">Continue Shopping</a>
-        <a asp-action="ClearCart" class="btn btn-warning">Clear Cart</a>
-        <a asp-action="Checkout" class="btn btn-success">Checkout</a> 
+            <div class="action-buttons text-center">
+                <a asp-controller="Catalogue" asp-action="Index" class="btn btn-primary">Continue Shopping</a>
+                <a asp-action="ClearCart" class="btn btn-warning">Clear Cart</a>
+                <a asp-action="Checkout" class="btn btn-success">Checkout</a> 
+            </div>
+        }
     </div>
-    
-}
+
+    <footer class="footer">
+        <p>&copy; 2024 Pasticceria Papa. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
